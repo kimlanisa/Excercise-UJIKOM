@@ -1,4 +1,4 @@
-<x-app-layout title="Data Paket">
+<x-app-layout title="Laporan Transaksi">
     <x-slot name="vendor_css">
         <link rel="stylesheet" href="../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
         <link rel="stylesheet" href="../../assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
@@ -15,31 +15,24 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Jenis</th>
-                                <th>Lama Hari</th>
-                                <th>Berat</th>
-                                <th>Harga</th>
-                                <th>Status</th>
-                                <th>Dibuat Oleh</th>
-                                <th>Action</th>
+                                <th>Nama Konsumen</th>
+                                <th>Paket Laundry</th>
+                                <th>Jenis Pembayaran</th>
+                                <th>Status Pembayaran</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($hargas as $harga)
+                            {{-- @foreach ($karyawans as $karyawan)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $harga->jenis }}</td>
-                                    <td>{{ $harga->hari }}</td>
-                                    <td>{{ $harga->kg }}</td>
-                                    <td>{{ Rupiah::getRupiah($harga->harga) }}</td>
+                                    <td>{{ $karyawan->kode_user }}</td>
+                                    <td>{{ $karyawan->name }}</td>
+                                    <td>{{ $karyawan->email }}</td>
+                                    <td>{{ $karyawan->alamat }}</td>
+                                    <td>{{ $karyawan->no_telp }}</td>
+                                    <td>{{ $karyawan->created_at->diffForHumans() }}</td>
                                     <td>
-                                        @if ($harga->status == 1)
-                                            <span class="badge bg-success">Aktif</span>
-                                        @else
-                                            <span class="badge bg-danger">Tidak Aktif</span>
-                                        @endif
-                                    </td>
-                                    <td>{{ $harga->harga_user }}</td>
                                         <div class="d-flex">
                                             <div class="d-inline-block">
                                                 <a href="javascript:;"
@@ -48,10 +41,12 @@
                                                     <i class="text-primary ti ti-dots-vertical"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-end m-0">
-                                                    <a href="{{ route('harga.edit', $harga->kode_user) }}"
+                                                    <a href="{{ route('karyawan.show', $karyawan->kode_user) }}"
+                                                        class="dropdown-item">Detail</a>
+                                                    <a href="{{ route('karyawan.edit', $karyawan->kode_user) }}"
                                                         class="dropdown-item">Edit</a>
                                                     <form
-                                                        action="{{ route('karyawan.destroy', $harga->kode_user) }}"
+                                                        action="{{ route('karyawan.destroy', $karyawan->kode_user) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -65,7 +60,7 @@
                                     </td>
                                 </tr>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                 </div>
@@ -77,7 +72,7 @@
         <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     </x-slot>
     <x-slot name="page_js">
-        <script src="../../assets/js/transaksi.js"></script>
+        <script src="../../assets/js/laporan.js"></script>
         @if (session('success'))
             <script>
                 $(document).ready(function() {

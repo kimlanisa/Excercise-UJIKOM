@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Harga;
 use Illuminate\Http\Request;
 
-class HargaController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class HargaController extends Controller
      */
     public function index()
     {
-        $hargas = Harga::all();
-
-        return view('harga.index', compact('hargas'));
+        return view('history.index');
     }
 
     /**
@@ -26,8 +23,7 @@ class HargaController extends Controller
      */
     public function create()
     {
-        return view('harga.create');
-
+        //
     }
 
     /**
@@ -38,25 +34,7 @@ class HargaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id_karyawan' => 'required',
-            'jenis' => 'required',
-            'harga' => 'required|numeric',
-            'hari' => 'required',
-            'kg' => 'required|numeric',
-            'status' => 'required',
-        ]);
-
-        $harga = Harga::create([
-            'id_karyawan' => $request->id_karyawan,
-            'jenis' => $request->jenis,
-            'harga' => $request->harga,
-            'hari' => $request->hari,
-            'kg' => $request->kg,
-            'status' => $request->status,
-        ]);
-
-        return redirect()->route('harga.index')->with('success', 'Harga created successfully.');
+        //
     }
 
     /**
@@ -78,7 +56,7 @@ class HargaController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**

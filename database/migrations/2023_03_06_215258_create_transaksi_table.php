@@ -16,15 +16,13 @@ return new class extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
             $table->string('invoice');
-            $table->string('customer_id');
-            $table->string('user_id');
+            $table->string('id_customer');
+            $table->string('id_karyawan');
             $table->string('tgl_transaksi');
             $table->string('customer');
-            $table->string('email_customer');
             $table->enum('status_order', ['Process', 'Done', 'Delivery'])->default('Process');
             $table->enum('status_payment', ['Pending', 'Success']);
-            $table->integer('harga_id');
-            $table->string('kg');
+            $table->string('paket');
             $table->string('hari');
             $table->string('harga');
             $table->string('disc')->nullable();

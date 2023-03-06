@@ -20,15 +20,15 @@ $(function () {
         displayLength: 10,
         buttons: [
             {
-            text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Karyawan</span>',
+            text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Paket</span>',
             className: 'create-new btn btn-primary',
             action : function ( e, dt, node, config ) {
-                window.location.href = '/karyawan/create';
+                window.location.href = '/paket/create';
             }
             }
         ]
         });
-        $('div.head-label').html('<h5 class="card-title mb-0">Management Data Karyawan</h5>');
+        $('div.head-label').html('<h5 class="card-title mb-0">Data Paket Tersedia</h5>');
     }
 
     if (dt_show_table.length) {
@@ -42,11 +42,11 @@ $(function () {
     confirmDelete.onclick = function (e) {
         var form =  $(this).closest("form");
       Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Kamu Serius?',
+        text: "Datanya bakal kehapus nih!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
+        confirmButtonText: 'Iya, Hapus aja!',
         customClass: {
           confirmButton: 'btn btn-primary me-3',
           cancelButton: 'btn btn-label-secondary'
@@ -57,7 +57,7 @@ $(function () {
           Swal.fire({
             icon: 'success',
             title: 'Deleted!',
-            text: 'Karyawan data has been deleted.',
+            text: 'Oke! Data Paket Sudah Dihapus.',
             customClass: {
               confirmButton: 'btn btn-success'
             }
@@ -67,7 +67,7 @@ $(function () {
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
             title: 'Cancelled',
-            text: 'Karyawan data is safe :)',
+            text: 'Tenang.. Data Paket Sudah Aman :)',
             icon: 'error',
             customClass: {
               confirmButton: 'btn btn-success'

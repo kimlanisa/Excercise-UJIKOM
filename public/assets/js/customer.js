@@ -20,35 +20,7 @@ $(function () {
         displayLength: 10,
         buttons: [
             {
-            extend: 'collection',
-            className: 'btn btn-label-primary dropdown-toggle me-2',
-            text: '<i class="ti ti-file-export me-sm-1"></i> <span class="d-none d-sm-inline-block">Export</span>',
-            buttons: [
-                {
-                text: '<i class="ti ti-printer me-1" ></i>Print',
-                className: 'dropdown-item',
-                action : function ( e, dt, node, config ) {
-                window.location.href = '/customer/print';
-            }
-                },
-                {
-                text: '<i class="ti ti-file-spreadsheet me-1"></i>Excel',
-                className: 'dropdown-item',
-                action : function ( e, dt, node, config ) {
-                window.location.href = '/customer/excel';
-            }
-                },
-                {
-                text: '<i class="ti ti-file-description me-1"></i>PDF',
-                className: 'dropdown-item',
-                action : function ( e, dt, node, config ) {
-                window.location.href = '/customer/pdf';
-            }
-                },
-            ]
-            },
-            {
-            text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Tambah Customer</span>',
+            text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Konsumen</span>',
             className: 'create-new btn btn-primary',
             action : function ( e, dt, node, config ) {
                 window.location.href = '/customer/create';

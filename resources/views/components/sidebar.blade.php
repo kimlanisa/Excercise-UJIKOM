@@ -16,7 +16,7 @@
                         fill="#7367F0"></path>
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">E-Laundry</span>
+            <span class="app-brand-text demo menu-text fw-bold">Laundry</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -36,7 +36,7 @@
             </a>
         </li>
 
-        <!-- Apps & Pages -->
+        <!-- Management User -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Management User</span>
         </li>
@@ -55,14 +55,30 @@
         <li class="menu-item {{ request()->is('customer*') ? 'active' : '' }}">
             <a href="{{ route('customer.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
-                <div>Pelanggan</div>
+                <div>Konsumen</div>
             </a>
         </li>
 
 
-        <!-- Misc -->
+        <!-- Reference -->
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Keuangan</span>
+            <span class="menu-header-text">Data Reference</span>
+        </li>
+        <li class="menu-item {{ request()->is('paket*') ? 'active' : '' }}">
+            <a href="{{ route('paket.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-report-money"></i>
+                <div>Jenis Layanan</div>
+            </a>
+        </li>
+        <li class="menu-item" {{ request()->is('pembayaran*') ? 'active' : '' }}>
+            <a href="{{ route('pembayaran.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-file-description"></i>
+                <div>Jenis Pembayaran</div>
+            </a>
+        </li>
+        <!-- Transanction -->
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Finance</span>
         </li>
         <li class="menu-item {{ request()->is('transaksi*') ? 'active' : '' }}">
             <a href="{{ route('transaksi.index') }}" class="menu-link">
@@ -70,10 +86,20 @@
                 <div>Transaksi</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-file-description"></i>
-                <div>Laporan</div>
+        <li class="menu-item {{ request()->is('laporan*') ? 'active' : '' }}">
+            <a href={{ route('laporan.index') }} class="menu-link">
+                <i class="menu-icon tf-icons ti ti-report-money"></i>
+                <div>Laporan Keuangan</div>
+            </a>
+        </li>
+        <!-- History -->
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">History</span>
+        </li>
+        <li class="menu-item {{ request()->is('history*') ? 'active' : '' }}">
+            <a href="{{ route('history.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-report-money"></i>
+                <div>History Order</div>
             </a>
         </li>
     </ul>

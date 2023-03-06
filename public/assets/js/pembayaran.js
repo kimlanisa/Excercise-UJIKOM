@@ -20,43 +20,15 @@ $(function () {
         displayLength: 10,
         buttons: [
             {
-            extend: 'collection',
-            className: 'btn btn-label-primary dropdown-toggle me-2',
-            text: '<i class="ti ti-file-export me-sm-1"></i> <span class="d-none d-sm-inline-block">Export</span>',
-            buttons: [
-                {
-                text: '<i class="ti ti-printer me-1" ></i>Print',
-                className: 'dropdown-item',
-                action : function ( e, dt, node, config ) {
-                window.location.href = '/transaksi/print';
-            }
-                },
-                {
-                text: '<i class="ti ti-file-spreadsheet me-1"></i>Excel',
-                className: 'dropdown-item',
-                action : function ( e, dt, node, config ) {
-                window.location.href = '/transaksi/excel';
-            }
-                },
-                {
-                text: '<i class="ti ti-file-description me-1"></i>PDF',
-                className: 'dropdown-item',
-                action : function ( e, dt, node, config ) {
-                window.location.href = '/transaksi/pdf';
-            }
-                },
-            ]
-            },
-            {
-            text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Transaksi</span>',
+            text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Pembayaran</span>',
             className: 'create-new btn btn-primary',
             action : function ( e, dt, node, config ) {
-                window.location.href = '/transaksi/create';
+                window.location.href = '/pembayaran/create';
             }
             }
         ]
         });
-        $('div.head-label').html('<h5 class="card-title mb-0">Management Data Transaksi</h5>');
+        $('div.head-label').html('<h5 class="card-title mb-0">Data Tipe Pembayaran</h5>');
     }
 
     if (dt_show_table.length) {
@@ -70,11 +42,11 @@ $(function () {
     confirmDelete.onclick = function (e) {
         var form =  $(this).closest("form");
       Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Kamu Serius?',
+        text: "Datanya bakal kehapus nih!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
+        confirmButtonText: 'Iya, Hapus aja!',
         customClass: {
           confirmButton: 'btn btn-primary me-3',
           cancelButton: 'btn btn-label-secondary'
@@ -85,7 +57,7 @@ $(function () {
           Swal.fire({
             icon: 'success',
             title: 'Deleted!',
-            text: 'Transaction data has been deleted.',
+            text: 'Oke! Tipe Pembayaran Sudah Dihapus.',
             customClass: {
               confirmButton: 'btn btn-success'
             }
@@ -95,7 +67,7 @@ $(function () {
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
             title: 'Cancelled',
-            text: 'Transaction data is safe :)',
+            text: 'Tenang.. Data Tipe Pembayaran Sudah Aman :)',
             icon: 'error',
             customClass: {
               confirmButton: 'btn btn-success'

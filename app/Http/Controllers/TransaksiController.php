@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Harga;
-use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -16,8 +13,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        // $transaksis = Transaksi::all();
-        return view('transaksi.index');
+        // $transaksi = Transaksi::all();
+        // $status_pesanan = StatusPesanan::all();
+        return view('transaksi.index', compact('transaksi', 'status_pesanan'));
     }
 
     /**
@@ -27,19 +25,11 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        $customers = User::role('customer')->get();
-        $paket = Harga::where('status', '1')->get();
+        // $customers = User::role('customer')->get();
+        // $paket = Paket::all();
+        // $pembayaran = Pembayaran::all();
 
-        $y = date('Y');
-        $number = mt_rand(1000, 9999);
-
-        $newID = 'TRX' . $y . $number;
-        $tgl = date('d-m-Y');
-
-        $cek_harga = Harga::where('status', '1')->first();
-        $cek_customer = User::role('customer')->count();
-
-        return view('transaksi.create', compact('customers', 'paket', 'newID', 'tgl', 'cek_harga', 'cek_customer'));
+        return view('transaksi.create', compact('customers', 'paket', 'pembayaran'));
     }
 
     /**
@@ -50,7 +40,35 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'customer_id' => 'required',
+        //     'paket_id' => 'required',
+        //     'pembayaran_id' => 'required',
+        //     'status_pesanan_id' => 'required',
+        //     'tanggal' => 'required',
+        //     'berat' => 'required',
+        //     'total_harga' => 'required',
+        // ]);
+
+        // Transaksi::create([
+        //     'customer_id' => $request->customer_id,
+        //     'paket_id' => $request->paket_id,
+        //     'pembayaran_id' => $request->pembayaran_id,
+        //     'status_pesanan_id' => $request->status_pesanan_id,
+        //     'tanggal' => $request->tanggal,
+        //     'berat' => $request->berat,
+        //     'total_harga' => $request->total_harga,
+
+
+            // $hitung                 = $order->kg * $order->harga;
+            // if ($request->disc != NULL) {
+            //     $disc                = ($hitung * $order->disc) / 100;
+            //     $total               = $hitung - $disc;
+            //     $order->harga_akhir  = $total;
+            // } else {
+            // $order->harga_akhir    = $hitung;
+            // }
+        // ]);
     }
 
     /**
@@ -59,10 +77,10 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    // public function show(Transaksi $transaksi)
+    // {
         //
-    }
+    // }
 
     /**
      * Show the form for editing the specified resource.

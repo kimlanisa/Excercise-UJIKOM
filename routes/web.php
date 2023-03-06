@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +23,7 @@ use App\Http\Controllers\TransaksiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/dashboard', function () {
@@ -56,8 +60,28 @@ Route::get('/admin/{admin:kode_user}/edit', [AdminController::class, 'edit'])->n
 Route::patch('/admin/{admin:kode_user}', [AdminController::class, 'update'])->name('admin.update');
 Route::delete('/admin/{admin:kode_user}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
+Route::get('/paket', [PaketController::class, 'index'])->name('paket.index');
+Route::get('/paket/create', [PaketController::class, 'create'])->name('paket.create');
+Route::post('/paket', [PaketController::class, 'store'])->name('paket.store');
+Route::get('/paket/{paket:id}', [PaketController::class, 'show'])->name('paket.show');
+Route::get('/paket/{paket:id}/edit', [PaketController::class, 'edit'])->name('paket.edit');
+Route::patch('/paket/{paket:id}', [PaketController::class, 'update'])->name('paket.update');
+Route::delete('/paket/{paket:id}', [PaketController::class, 'destroy'])->name('paket.destroy');
+
+Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
+Route::post('/pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store');
+Route::get('/pembayaran/{pembayaran:id}', [PembayaranController::class, 'show'])->name('pembayaran.show');
+Route::get('/pembayaran/{pembayaran:id}/edit', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
+Route::patch('/pembayaran/{pembayaran:id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
+Route::delete('/pembayaran/{pembayaran:id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+
 Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
-Route::get('/transaksi/create', [TransaksiController::class, 'create'])->name('transaksi.create');
+// Route::get('/transaksi/create', [TransaksiController::class, 'create'])->name('transaksi.create');
+
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+
+Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
 
 
 require __DIR__.'/auth.php';
